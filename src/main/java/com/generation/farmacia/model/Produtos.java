@@ -21,7 +21,7 @@ public class Produtos {
 	private Long id;
 	
 	@NotNull(message = "O nome é obrigatorio.")
-	@Size(min = 2, max = 100, message = "O atributo tipo deve conter no mínimo 05 e no máximo 100 caracteres")
+	@Size(min = 2, max = 100, message = "O atributo tipo deve conter no mínimo 02 e no máximo 100 caracteres")
 	private String nome;
 
 	@NotNull(message = "O Atributo Preço é obrigatório")
@@ -38,10 +38,6 @@ public class Produtos {
 	@Size(min = 5, max = 100, message = "O Atributo Posologia deve ter no mínimo 5 caracteres e no máximo 100")
 	@NotBlank(message = "Atributo Posologia é obrigatório")
 	private String posologia;
-
-	@ManyToOne
-	@JsonIgnoreProperties("produtos")
-	private Produtos produtos;
 
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
@@ -87,13 +83,6 @@ public class Produtos {
 		this.posologia = posologia;
 	}
 
-	public Produtos getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(Produtos produtos) {
-		this.produtos = produtos;
-	}
 
 	public Categoria getCategoria() {
 		return categoria;
@@ -101,6 +90,14 @@ public class Produtos {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 }
